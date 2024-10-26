@@ -1,0 +1,33 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link href="/static/css/main.css" type="text/css" rel="stylesheet">
+    <title>Login</title>
+</head>
+<body>
+    <div class="reg-container">
+        <h1 class="fun-font">Login</h1>
+        <form method="post" action="{{ url_for('main.login') }}" class="form">
+            {{ form.hidden_tag() }}
+            <div class="form-group">
+                <label>{{ form.email.label }}</label>
+                {{ form.email(class='form-input', placeholder='Enter your email address') }}
+            </div>
+            <div class="form-group">
+                <label>{{ form.password.label }}</label>
+                {{ form.password(class='form-input', placeholder='Enter your password') }}
+            </div>
+            <div class="form-group">
+                {{ form.submit(class='btn') }}
+            </div>
+        </form>
+        <p>Don't have an account? <a href="/register">Register here</a></p>
+    </div>
+    <footer>
+        <p>&copy; 2024 CareConnect. All rights reserved.</p>
+    </footer>
+</body>
+</html>
