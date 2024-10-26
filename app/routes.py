@@ -59,7 +59,9 @@ def logout():
 
 @main.route('/donate', methods=['POST', 'GET'])
 def donate():
-    return render_template('donate.html')
+    campaigns = Campaign.query.filter_by(user_id = 5).order_by(Campaign.date_started.desc()).all()
+
+    return render_template('donate.html', campaign = campaigns)
 
 
 @main.route('/campaign', methods=['POST', 'GET'])

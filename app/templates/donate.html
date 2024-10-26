@@ -8,6 +8,31 @@
 </head>
 <body>
     <h1>Avaliable Campaigns</h1>
+    <table>
+        <tr>
+            <th>Campaign Name</th>
+            <th>Description</th>
+            <th>Date Started</th>
+            <th>Total Funds</th>
+            <th>ID Document</th>
+        </tr>
+    </thead>
+        <tbody>
+            {% for cmp in campaign %}
+            <tr>
+                <td>{{ cmp.campaign_name }}</td>
+                <td>{{ cmp.description }}</td>
+                <td>{{ cmp.date_started.strftime("%Y-%m-%d %H:%M") }}</td>
+                <td>{{ cmp.total_funds }}</td>
+                <td>{{ cmp.ID_document }}</td>
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan="4" class="text-center">No Campaigns Avaliable</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
     
 </body>
 </html>
