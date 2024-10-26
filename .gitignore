@@ -74,3 +74,4 @@ htmlcov/
 secret_key.py
 
 migrations/
+
