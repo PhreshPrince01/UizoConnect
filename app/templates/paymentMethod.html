@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Form</title>
+    <style>
+        /* Hide all payment sections initially */
+        .payment-section { display: none; }
+    </style>
+    <script>
+        function showPaymentSection() {
+            const selectedMethod = document.querySelector('input[name="paymentMethod"]:checked').value;
+            document.querySelectorAll('.payment-section').forEach(section => {
+                section.style.display = 'none';
+            });
+            document.getElementById(selectedMethod).style.display = 'block';
+        }
+    </script>
+</head>
+<body>
+    <h2>Select Payment Method</h2>
+    <form action="/submit-payment" method="POST">
+        <!-- Payment Method Selection -->
+        <label>
+            <input type="radio" name="paymentMethod" value="creditCard" onclick="showPaymentSection()" required>
+            Credit Card
+        </label>
+        <label>
+            <input type="radio" name="paymentMethod" value="paypal" onclick="showPaymentSection()">
+            PayPal
+        </label>
+        <label>
+            <input type="radio" name="paymentMethod" value="bankTransfer" onclick="showPaymentSection()">
+            Bank Transfer
+        </label>
+
+        <!-- Credit Card Payment Section -->
+        <div id="creditCard" class="payment-section">
+            <h3>Credit Card Details</h3>
+            <label for="cardName">Name on Card:</label>
+            <input type="text" id="cardName" name="cardName"><br><br>
+            
+            <label for="cardNumber">Card Number:</label>
+            <input type="text" id="cardNumber" name="cardNumber" maxlength="16"><br><br>
+            
+            <label for="expiryDate">Expiry Date:</label>
+            <input type="month" id="expiryDate" name="expiryDate"><br><br>
+            
+            <label for="cvv">CVV:</label>
+            <input type="text" id="cvv" name="cvv" maxlength="3"><br><br>
+        </div>
+
+        <!-- PayPal Payment Section -->
+        <div id="paypal" class="payment-section">
+            <h3>PayPal Details</h3>
+            <label for="paypalEmail">PayPal Email:</label>
+            <input type="email" id="paypalEmail" name="paypalEmail"><br><br>
+        </div>
+
+        <!-- Bank Transfer Payment Section -->
+        <div id="bankTransfer" class="payment-section">
+            <h3>Bank Transfer Details</h3>
+            <label for="bankName">Bank Name:</label>
+            <input type="text" id="bankName" name="bankName"><br><br>
+            
+            <label for="accountNumber">Account Number:</label>
+            <input type="text" id="accountNumber" name="accountNumber"><br><br>
+            
+            <label for="routingNumber">Routing Number:</label>
+            <input type="text" id="routingNumber" name="routingNumber"><br><br>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit">Submit Payment</button>
+    </form>
+</body>
+</html>
