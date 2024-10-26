@@ -26,12 +26,16 @@ class Campaign(db.Model):
     date_started = db.Column(db.DateTime, default=datetime.utcnow)
     total_funds = db.Column(db.Float, nullable=False)
     ID_document = db.Column(db.String(150))
-    doctors_letter = db.Column(db.String(150))
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    quotation = db.Column(db.String(150))
 
-
+    @staticmethod
     def save_file(file):
+        uploads_dir = 'uploads'
+        if not os.path.exists(uploads_dir):
+            os.makedirs(uploads_dir)  # Create the uploads directory if it doesn't exist
+
         filename = secure_filename(file.filename)
-        file_path = os.path.join('uploads', filename)
+        file_path = os.path.join(uploads_dir, filename)
         file.save(file_path)
         return file_path

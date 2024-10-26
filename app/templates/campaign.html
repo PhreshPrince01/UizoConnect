@@ -8,19 +8,56 @@
 </head>
 <body>
     <h1>Creata A Campaign</h1>
-    <form action="/upload" method="POST" enctype="multipart/form-data">
-        <label for="campaign_name">Campaign Name:</label>
-        <input type="text" id="campaign_name" name="campaign_name" required><br><br>
-        <label for="description">Description:</label>
-        <textarea id="description" name="description" rows="4" cols="50" required></textarea><br><br>
-        <label for="total_funds">Total Funds:</label>
-        <input type="number" id="total_funds" name="total_funds" step="0.01" required><br><br>
-        <label for="ID_document">Upload ID Document:</label>
-        <input type="file" id="ID_document" name="ID_document" accept=".pdf,.doc,.docx,.jpg,.png" required><br><br>
-        <label for="ID_document">Upload Doctor's Approval:</label>
-        <input type="file" id="Doctor's Approval" name="Doctor's Approval" accept=".pdf,.doc,.docx,.jpg,.png" required><br><br>
-        <label for="ID_document">Upload Campeign Qoutation:</label>
-        <input type="file" id="Campaign Qoutation" name="Campeign Qoutation" accept=".pdf,.doc,.docx,.jpg,.png" required><br><br>
-        <input type="submit" value="Submit Campaign"></form>
+
+
+    <form method="POST" action="{{ url_for('main.campaign') }}" class="form" enctype="multipart/form-data">
+        {{ form.hidden_tag() }}
+
+        <div>
+            <label for="campaign_name">Campaign Name:</label>
+            {{ form.campaign_name }}
+        </div>
+
+        <div>
+            <label for="description">Description:</label>
+            {{ form.description }}
+        </div>
+
+        <div>
+            <label for="total_funds">Total Funds:</label>
+            {{ form.total_funds }}
+        </div>
+
+        <div>
+            <label for="ID_document">ID Document:</label>
+            {{ form.ID_document }}
+        </div>
+
+       
+        <div>
+            <label for="campaign_quotation">Campaign Qoutation:</label>
+            {{ form.quotation }}
+        </div>
+
+        <div>
+            {{ form.submit(class='btn') }}
+        </div>
+    </form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </body>
 </html>

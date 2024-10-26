@@ -1,8 +1,8 @@
 from flask import Blueprint, render_template, redirect, request, url_for, flash
 from flask_login import login_required, login_user, logout_user, current_user
 from extentions import db
-from .models import User
-from .forms import RegistrationForm, LoginForm
+from .models import Campaign, User
+from .forms import CampaignForm, RegistrationForm, LoginForm
 
 
 main = Blueprint('main',__name__)
@@ -64,7 +64,27 @@ def donate():
 
 @main.route('/campaign', methods=['POST', 'GET'])
 def campaign():
-    return render_template('campaign.html')
+    form = CampaignForm()
+    if form.validate_on_submit():
+
+        id_doc = Campaign.save_file(form.ID_document.data)
+
+        new_campaign = Campaign(
+            campaign_name = form.campaign_name.data,
+            description = form.description.data,
+            total_funds = form.total_funds.data,
+            ID_document = id_doc,
+            user_id =5,
+            quotation = form.quotation.data
+        )
+        db.session.add(new_campaign)
+        db.session.commit()
+        flash("Campaign added susscessfully. Pending confirmation", "success")
+        return redirect(url_for('main.index'))
+    else:
+        print(form.errors)
+        
+    return render_template('campaign.html', form=form)
 
 
 @main.route('/')
