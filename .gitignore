@@ -1,0 +1,76 @@
+# Python cache files
+__pycache__/
+*.py[cod]
+
+# Flask instance folder
+instance/
+
+# Virtual environment
+venv/
+env/
+ENV/
+.venv/
+.venv/
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+
+# Environment variables
+*.env
+.env
+
+# IDE/editor specific files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Logs
+*.log
+
+# Byte-compiled / optimized / DLL files
+*.pyd
+*.pyo
+*.pdb
+
+# Backup files
+*~ 
+*.bak
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+.wheelhouse/
+pip-wheel-metadata/
+*.egg-info/
+MANIFEST
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# pytest cache
+.cache
+
+# Pytest results
+*.result
+*.xml
+
+# coverage reports
+.coverage
+htmlcov/
+
+# secret_key file
+secret_key.py
+
+migrations/
