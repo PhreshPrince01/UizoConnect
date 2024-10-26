@@ -67,6 +67,8 @@ def campaign():
     return render_template('campaign.html')
 
 
+
+
 @main.route('/')
 def index():
     return render_template('welcome.html')
