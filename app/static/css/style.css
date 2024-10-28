@@ -1,0 +1,89 @@
+header {
+    position: fixed; /* Keeps the header at the top */
+    top: 0; /* Aligns to the top */
+    left: 0; /* Aligns to the left */
+    width: 100%; /* Full width */
+    height: 120px; /* Set a desired height */
+    background-color: #128F8B; /* Background color */
+    display: flex; /* Use flexbox for alignment */
+    align-items: center; /* Center items vertically */
+    justify-content: space-between; /* Space between logo and links */
+    padding: 0 20px; /* Horizontal padding for content */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional shadow for depth */
+    z-index: 1000; /* Ensure it appears above other content */
+}
+
+.Uni-Font{
+    font-weight: bold;
+    font-family: 'Aileron', sans-serif; /* Apply Aileron font */
+    font-size: 2.5em; /* Adjust size as needed */
+    color: #128F8B;; /* Keep the text color white */
+    margin: 0; /* Remove default margin */
+}
+header img {
+    height: 85px; /* Adjust logo/image height */
+}
+html, body {
+    display: flex;
+    height: 100%; /* Ensure the body takes the full height */
+    margin: 0; /* Remove default margin */
+    flex-direction: column;
+}
+
+
+.container {
+    display: flex; /* Enable flexbox */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    flex-direction: column; /* Stack items vertically */
+    height: 400px; /* Set a fixed height (adjust as needed) */
+    text-align: center; /* Center text within the container */
+    
+    background-color: #ffffff; 
+    border: 2px solid #128F8B; 
+    border-radius: 10px; 
+    padding: 20px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+    margin: auto; /* Automatically adjust margins to center */
+    
+    width: 80%; /* Set a width for the container */
+    max-width: 600px; /* Optional max-width for larger screens */
+}
+
+
+/* Options styles within the container */
+.options {
+    margin-top: 20px; /* Space between title and options */
+}
+
+.options p {
+    font-size: 1.2em; /* Slightly larger text for prompts */
+    color: #333; /* Darker text color for better readability */
+}
+
+.btn {
+    display: inline-block; /* Make buttons inline-block for padding and margin control */
+    background-color: #128F8B; /* Button background color matching header */
+    color: white; /* White text color for contrast */
+    padding: 10px 20px; /* Padding for buttons */
+    border-radius: 5px; /* Rounded corners for buttons */
+    text-decoration: none; /* Remove underline from links */
+    margin-top: 10px; /* Space above buttons */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transitions for effects */
+}
+
+.btn:hover {
+    background-color: #107b74; /* Darker shade on hover for feedback */
+    transform: translateY(-2px); /* Slight lift effect on hover */
+}
+
+/* Footer styles */
+footer p {
+    margin: 0;
+}
+footer {
+    background-color: #128F8B; /* Footer background color */
+    color: white; /* Footer text color */
+    text-align: center; /* Center footer text */
+    padding: 20px; /* Padding for footer */
+}
