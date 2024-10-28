@@ -64,6 +64,15 @@ def donate():
     return render_template('donate.html', campaign = campaigns)
 
 
+@main.route('/payment-method', methods=['GET'])
+def payment_method():
+    campaign_id = request.args.get('campaign_id')
+    campaign_name = request.args.get('campaign_name')
+
+    return render_template('paymentMethod.html', campaign_id=campaign_id, campaign_name=campaign_name)
+
+
+
 @main.route('/campaign', methods=['POST', 'GET'])
 def campaign():
     form = CampaignForm()
