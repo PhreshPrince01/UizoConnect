@@ -18,7 +18,7 @@ header {
     font-family: 'Aileron', sans-serif; /* Apply Aileron font */
     font-size: 2.5em; /* Adjust size as needed */
     color: #128F8B;; /* Keep the text color white */
-    margin: 0; /* Remove default margin */
+    margin-bottom: 0; /* Remove default margin */
 }
 header img {
     height: 85px; /* Adjust logo/image height */
@@ -31,7 +31,9 @@ html, body {
 }
 
 
-.container {
+.container,
+.reg-container {
+
     display: flex; /* Enable flexbox */
     justify-content: center; /* Center horizontally */
     align-items: center; /* Center vertically */
@@ -50,6 +52,23 @@ html, body {
     max-width: 600px; /* Optional max-width for larger screens */
 }
 
+.form-group{
+    margin-bottom: 1.5em;
+    text-align: left;
+}
+
+.form-submit{
+    text-align: center;
+}
+
+.form-input{
+    width: 100%;
+    padding: 0.75em;
+    border: 1px solid #128F8B;
+    border-radius: 5px;
+    background-color:aliceblue;
+    
+}
 
 /* Options styles within the container */
 .options {
