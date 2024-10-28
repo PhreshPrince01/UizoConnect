@@ -16,67 +16,81 @@
             document.getElementById(selectedMethod).style.display = 'block';
         }
     </script>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link href="https://fonts.cdnfonts.com/css/aileron" rel="stylesheet">
 </head>
+
 <body>
-    <img src="/static/images/usizoconnect.png" alt="Finance Icon" class="logo">
-    <h2>Select Payment Method for Campaign: {{ campaign_name }}</h2>
-
-    <form action="/submit-payment" method="POST">
-        <!-- Hidden inputs to carry campaign info -->
-        <input type="hidden" name="campaign_id" value="{{ campaign_id }}">
-        <input type="hidden" name="campaign_name" value="{{ campaign_name }}">
-
-        <!-- Payment Method Selection -->
-        <label>
-            <input type="radio" name="paymentMethod" value="creditCard" onclick="showPaymentSection()" required>
-            Credit Card
-        </label>
-        <label>
-            <input type="radio" name="paymentMethod" value="paypal" onclick="showPaymentSection()">
-            PayPal
-        </label>
-        <label>
-            <input type="radio" name="paymentMethod" value="bankTransfer" onclick="showPaymentSection()">
-            Bank Transfer
-        </label>
-
-        <!-- Credit Card Payment Section -->
-        <div id="creditCard" class="payment-section">
-            <h3>Credit Card Details</h3>
-            <label for="cardName">Name on Card:</label>
-            <input type="text" id="cardName" name="cardName" required><br><br>
-
-            <label for="cardNumber">Card Number:</label>
-            <input type="text" id="cardNumber" name="cardNumber" maxlength="16" required><br><br>
-
-            <label for="expiryDate">Expiry Date:</label>
-            <input type="month" id="expiryDate" name="expiryDate" required><br><br>
-
-            <label for="cvv">CVV:</label>
-            <input type="text" id="cvv" name="cvv" maxlength="3" required><br><br>
+    <header>
+        <div class="header-content">
+            <img src="/static/images/UsizoConnect.png" alt="UsizoConnect Icon" class="logo">
         </div>
+    </header>
+    
+    <div class="reg-container">
+        <h2 class="Uni-Font">Select Payment Method for Campaign: {{ campaign_name }}</h2>
 
-        <!-- PayPal Payment Section -->
-        <div id="paypal" class="payment-section">
-            <h3>PayPal Details</h3>
-            <label for="paypalEmail">PayPal Email:</label>
-            <input type="email" id="paypalEmail" name="paypalEmail" required><br><br>
+        <form action="/submit-payment" method="POST">
+            <!-- Hidden inputs to carry campaign info -->
+            <input type="hidden" name="campaign_id" value="{{ campaign_id }}">
+            <input type="hidden" name="campaign_name" value="{{ campaign_name }}">
+
+            
+            <!-- Payment Method Selection -->
+            <label>
+                <input type="radio" name="paymentMethod" value="creditCard" onclick="showPaymentSection()" required>
+                Credit Card
+            </label>
+            <label>
+                <input type="radio" name="paymentMethod" value="paypal" onclick="showPaymentSection()">
+                PayPal
+            </label>
+            <label>
+                <input type="radio" name="paymentMethod" value="bankTransfer" onclick="showPaymentSection()">
+                Bank Transfer
+            </label>
+
+            <!-- Credit Card Payment Section -->
+            <div id="creditCard" class="payment-section">
+                <h3>Credit Card Details</h3>
+                <label for="cardName">Name on Card:</label>
+                <input type="text" id="cardName" name="cardName" required><br><br>
+
+                <label for="cardNumber">Card Number:</label>
+                <input type="text" id="cardNumber" name="cardNumber" maxlength="16" required><br><br>
+
+                <label for="expiryDate">Expiry Date:</label>
+                <input type="month" id="expiryDate" name="expiryDate" required><br><br>
+
+                <label for="cvv">CVV:</label>
+                <input type="text" id="cvv" name="cvv" maxlength="3" required><br><br>
+            </div>
+
+            <!-- PayPal Payment Section -->
+            <div id="paypal" class="payment-section">
+                <h3>PayPal Details</h3>
+                <label for="paypalEmail">PayPal Email:</label>
+                <input type="email" id="paypalEmail" name="paypalEmail" required><br><br>
+            </div>
+
+            <!-- Bank Transfer Payment Section -->
+            <div id="bankTransfer" class="payment-section">
+                <h3>Bank Transfer Details</h3>
+                <label for="bankName">Bank Name:</label>
+                <input type="text" id="bankName" name="bankName" required><br><br>
+
+                <label for="accountNumber">Account Number:</label>
+                <input type="text" id="accountNumber" name="accountNumber" required><br><br>
+
+                <label for="routingNumber">Routing Number:</label>
+                <input type="text" id="routingNumber" name="routingNumber" required><br><br>
+            </div><br>
+
+            <button class="btn" type="submit">Submit Payment</button>
+        </form>
         </div>
-
-        <!-- Bank Transfer Payment Section -->
-        <div id="bankTransfer" class="payment-section">
-            <h3>Bank Transfer Details</h3>
-            <label for="bankName">Bank Name:</label>
-            <input type="text" id="bankName" name="bankName" required><br><br>
-
-            <label for="accountNumber">Account Number:</label>
-            <input type="text" id="accountNumber" name="accountNumber" required><br><br>
-
-            <label for="routingNumber">Routing Number:</label>
-            <input type="text" id="routingNumber" name="routingNumber" required><br><br>
-        </div>
-
-        <button type="submit">Submit Payment</button>
-    </form>
+        <footer>
+            <p>&copy; 2024 CareConnect. All rights reserved.</p>
+        </footer>
 </body>
 </html>
