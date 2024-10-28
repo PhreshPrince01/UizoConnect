@@ -21,7 +21,6 @@ def register():
         
         #Create new user
         new_user = User(
-            username = form.username.data,
             email= form.email.data
         )
         new_user.set_password(form.password.data)
@@ -29,6 +28,8 @@ def register():
         db.session.commit()
         flash('Registration Successful! You can now login', 'success')
         return redirect(url_for('main.login')) 
+    else:
+        print(form.errors)
     
     return render_template('register.html', form=form)
     
@@ -43,7 +44,7 @@ def login():
             login_user(user)
             flash('Login successful', 'success')
             
-            return redirect(url_for('main.dashboard'))
+            return redirect(url_for('main.welcome'))
         else:
             flash('Invalid email or password', 'danger')
 
@@ -59,12 +60,13 @@ def logout():
 
 @main.route('/donate', methods=['POST', 'GET'])
 def donate():
-    campaigns = Campaign.query.filter_by(user_id = 5).order_by(Campaign.date_started.desc()).all()
+    campaigns = Campaign.query.filter_by(user_id = current_user.id).order_by(Campaign.date_started.desc()).all()
 
     return render_template('donate.html', campaign = campaigns)
 
 
 @main.route('/payment-method', methods=['GET'])
+@login_required
 def payment_method():
     campaign_id = request.args.get('campaign_id')
     campaign_name = request.args.get('campaign_name')
@@ -74,6 +76,7 @@ def payment_method():
 
 
 @main.route('/campaign', methods=['POST', 'GET'])
+@login_required
 def campaign():
     form = CampaignForm()
     if form.validate_on_submit():
@@ -85,7 +88,7 @@ def campaign():
             description = form.description.data,
             total_funds = form.total_funds.data,
             ID_document = id_doc,
-            user_id =5,
+            user_id =current_user.id,
             quotation = form.quotation.data
         )
         db.session.add(new_campaign)
@@ -99,7 +102,12 @@ def campaign():
 
 
 
-
 @main.route('/')
 def index():
+    return render_template('index.html')
+
+
+@main.route('/welcome')
+@login_required
+def welcome():
     return render_template('welcome.html')
