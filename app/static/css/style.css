@@ -30,6 +30,26 @@ html, body {
     flex-direction: column;
 }
 
+.campaign-container{
+    display: flex; /* Enable flexbox */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    flex-direction: column; /* Stack items vertically */
+    
+    flex-wrap: wrap;
+    text-align: center; /* Center text within the container */
+    
+    background-color: #ffffff; 
+    border: 2px solid #128F8B; 
+    border-radius: 10px; 
+    padding: 20px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+    margin: auto; /* Automatically adjust margins to center */
+    
+    width: 80%; /* Set a width for the container */
+    max-width: 2000px; /* Optional max-width for larger screens */
+}
+
 
 .container,
 .reg-container {
@@ -46,6 +66,20 @@ html, body {
     border-radius: 10px; 
     padding: 20px; 
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+    margin: auto; /* Automatically adjust margins to center */
+    
+    width: 80%; /* Set a width for the container */
+    max-width: 600px; /* Optional max-width for larger screens */
+}
+
+.welcome-container {
+
+    display: flex; /* Enable flexbox */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    flex-direction: column; /* Stack items vertically */
+    text-align: center; /* Center text within the container */
+
     margin: auto; /* Automatically adjust margins to center */
     
     width: 80%; /* Set a width for the container */
@@ -73,6 +107,17 @@ html, body {
 /* Options styles within the container */
 .options {
     margin-top: 20px; /* Space between title and options */
+}
+.welcome-options{
+    margin-top: 80px;
+    
+}
+.Welcome-Uni-Font{
+    font-weight: bold;
+    font-family: 'Aileron', sans-serif; /* Apply Aileron font */
+    font-size: 4em; /* Adjust size as needed */
+    color: #128F8B;; /* Keep the text color white */
+    margin-bottom: 0; /* Remove default margin */
 }
 
 .options p {
@@ -105,4 +150,36 @@ footer {
     color: white; /* Footer text color */
     text-align: center; /* Center footer text */
     padding: 20px; /* Padding for footer */
+}
+.fa-start-campaign{
+    display: inline-block; /* Make buttons inline-block for padding and margin control */
+    background-color: gray; /* Button background color matching header */
+    color: white; /* White text color for contrast */
+    padding: 10px 20px; /* Padding for buttons */
+    margin-right: 80px;
+    border-radius: 5px; /* Rounded corners for buttons */
+    text-decoration: none; /* Remove underline from links */
+    margin-top: 10px; /* Space above buttons */
+    transition: background-color 0.3s ease, transform 0.2s ease; 
+}
+
+.fa-donate{
+    display: inline-block; /* Make buttons inline-block for padding and margin control */
+    background-color: gray; /* Button background color matching header */
+    color: white; /* White text color for contrast */
+    padding: 10px 20px; /* Padding for buttons */
+    border-radius: 5px; /* Rounded corners for buttons */
+    text-decoration: none; /* Remove underline from links */
+    margin-top: 10px; /* Space above buttons */
+    transition: background-color 0.3s ease, transform 0.2s ease; 
+}
+table{
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+
+}
+thead{
+    background-color: #ffffff;
+    color: #128F8B;
 }

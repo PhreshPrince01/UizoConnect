@@ -5,61 +5,57 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Campaign</title>
-    <link rel="stylesheet" href="/app/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link href="https://fonts.cdnfonts.com/css/aileron" rel="stylesheet">
 </head>
 <body>
-    <img src="/static/images/usizoconnect.png" alt="Finance Icon" class="logo">
-    <h1>Creata A Campaign</h1>
-
-
-    <form method="POST" action="{{ url_for('main.campaign') }}" class="form" enctype="multipart/form-data">
-        {{ form.hidden_tag() }}
-
-        <div>
-            <label for="campaign_name">Campaign Name:</label>
-            {{ form.campaign_name }}
+    <header>
+        <div class="header-content">
+            <img src="/static/images/UsizoConnect.png" alt="UsizoConnect Icon" class="logo">
         </div>
+    </header>
 
-        <div>
-            <label for="description">Description:</label>
-            {{ form.description }}
-        </div>
+    
 
-        <div>
-            <label for="total_funds">Total Funds:</label>
-            {{ form.total_funds }}
-        </div>
+    <div class="campaign-container">
+        <h1 class="Uni-Font">Create A Campaign</h1>
+        <form method="POST" action="{{ url_for('main.campaign') }}" class="form" enctype="multipart/form-data">
+            {{ form.hidden_tag() }}
 
-        <div>
-            <label for="ID_document">ID Document:</label>
-            {{ form.ID_document }}
-        </div>
+            <div class="form-group">
+                <label for="campaign_name">Campaign Name:</label>
+                {{ form.campaign_name(class='form-input', placeholder='Campaign Name') }}
+            </div>
 
-       
-        <div>
-            <label for="campaign_quotation">Campaign Qoutation:</label>
-            {{ form.quotation }}
-        </div>
+            <div class="form-group">
+                <label for="description">Description:</label>
+                {{ form.description(class='form-input', placeholder='Description') }}
+            </div>
 
-        <div>
-            {{ form.submit(class='btn') }}
-        </div>
-    </form>
+            <div class="form-group">
+                <label for="total_funds">Total Funds:</label>
+                {{ form.total_funds(class='form-input', placeholder='Total Funds') }}
+            </div>
 
+            <div class="form-group">
+                <label for="ID_document">ID Document:</label>
+                {{ form.ID_document(class='form-input', placeholder = 'ID Document') }}
+            </div>
 
+        
+            <div class="form-group">
+                <label for="campaign_quotation">Campaign Qoutation:</label>
+                {{ form.quotation(class='form-input', placeholder ='Campaign Qoutation') }}
+            </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
+            <div class="form-submit">
+                {{ form.submit(class='btn') }}
+            </div>
+        </form>
+    </div>
+    <footer>
+        <p>&copy; 2024 CareConnect. All rights reserved.</p>
+    </footer>
 
 </body>
 </html>

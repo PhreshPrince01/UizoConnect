@@ -94,7 +94,7 @@ def campaign():
         db.session.add(new_campaign)
         db.session.commit()
         flash("Campaign added susscessfully. Pending confirmation", "success")
-        return redirect(url_for('main.index'))
+        return redirect(url_for('main.welcome'))
     else:
         print(form.errors)
         

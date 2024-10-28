@@ -4,44 +4,55 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link href="https://fonts.cdnfonts.com/css/aileron" rel="stylesheet">
     <title>Donate</title>
 </head>
 <body>
-    <img src="/static/images/usizoconnect.png" alt="Finance Icon" class="logo">
-    <h1>Avaliable Campaigns</h1>
-    <table>
-        <tr>
-            <th>Campaign Name</th>
-            <th>Description</th>
-            <th>Date Started</th>
-            <th>Total Funds</th>
-            <th>ID Document</th>
-        </tr>
-    </thead>
-        <tbody>
-            {% for cmp in campaign %}
+    <header>
+        <div class="header-content">
+            <img src="/static/images/UsizoConnect.png" alt="UsizoConnect Icon" class="logo">
+        </div>
+    </header>
+    <div class="campaign-container">
+        <h1 class="Welcome-Uni-Font">Avaliable Campaigns</h1>
+        <table>
+            <thead>
             <tr>
-                <td>{{ cmp.campaign_name }}</td>
-                <td>{{ cmp.description }}</td>
-                <td>{{ cmp.date_started.strftime("%Y-%m-%d %H:%M") }}</td>
-                <td>{{ cmp.total_funds }}</td>
-                <td>{{ cmp.ID_document }}</td>
-                <td>
-                     <!-- Form to select the campaign and go to the payment page -->
-                    <form action="{{ url_for('main.payment_method') }}" method="GET">
-                        <input type="hidden" name="campaign_id" value="{{ cmp.id }}">
-                        <input type="hidden" name="campaign_name" value="{{ cmp.campaign_name }}">
-                        <button type="submit">Donate</button>
-                    </form>
-                </td>
+                <th>Campaign Name</th>
+                <th>Description</th>
+                <th>Date Started</th>
+                <th>Total Funds</th>
+                <th>ID Document</th>
             </tr>
-            {% else %}
-            <tr>
-                <td colspan="4" class="text-center">No Campaigns Avaliable</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-    
+        </thead>
+            <tbody>
+                {% for cmp in campaign %}
+                <tr>
+                    <td>{{ cmp.campaign_name }}</td>
+                    <td>{{ cmp.description }}</td>
+                    <td>{{ cmp.date_started.strftime("%Y-%m-%d %H:%M") }}</td>
+                    <td>{{ cmp.total_funds }}</td>
+                    <td>{{ cmp.ID_document }}</td>
+                    <td>
+                        <!-- Form to select the campaign and go to the payment page -->
+                        <form action="{{ url_for('main.payment_method') }}" method="GET">
+                            <input type="hidden" name="campaign_id" value="{{ cmp.id }}">
+                            <input type="hidden" name="campaign_name" value="{{ cmp.campaign_name }}">
+                            <button type="submit">Donate</button>
+                        </form>
+                    </td>
+                </tr>
+                {% else %}
+                <tr>
+                    <td colspan="4" class="text-center">No Campaigns Avaliable</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <footer>
+        <p>&copy; 2024 UsizoConnect. All rights reserved.</p>
+    </footer>
 </body>
 </html>
