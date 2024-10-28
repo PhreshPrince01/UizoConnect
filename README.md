@@ -1,6 +1,6 @@
 Usizo connect
 
-This project is a platform where users can register, log in, create health-related campaigns, or donate to existing campaigns. It provides secure user authentication, campaign management, and file uploads, organized through Flask’s blueprint architecture and utilizing Flask-Login for session handling
+This project is a platform where users can register, log in, and create or donate to health-related campaigns. It aims to provide healthcare assistance to underserved communities and individuals who cannot afford professional healthcare services by raising funds to support those in need. With a focus on security and ease of use, the platform offers features for user authentication, campaign management, and secure file uploads. Built with Flask’s modular blueprint architecture, it uses Flask-Login for managing user sessions, creating a seamless experience for both campaign creators and donors
 
 Table of Contents
 
