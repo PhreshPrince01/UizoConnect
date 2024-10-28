@@ -23,7 +23,7 @@
                 <th>Description</th>
                 <th>Date Started</th>
                 <th>Total Funds</th>
-                <th>ID Document</th>
+                <th>Status</th>
             </tr>
         </thead>
             <tbody>
@@ -32,14 +32,14 @@
                     <td>{{ cmp.campaign_name }}</td>
                     <td>{{ cmp.description }}</td>
                     <td>{{ cmp.date_started.strftime("%Y-%m-%d %H:%M") }}</td>
-                    <td>{{ cmp.total_funds }}</td>
-                    <td>{{ cmp.ID_document }}</td>
+                    <td>R {{ cmp.total_funds }}</td>
+                    <td> Admin Approved ✅</td>
                     <td>
                         <!-- Form to select the campaign and go to the payment page -->
                         <form action="{{ url_for('main.payment_method') }}" method="GET">
                             <input type="hidden" name="campaign_id" value="{{ cmp.id }}">
                             <input type="hidden" name="campaign_name" value="{{ cmp.campaign_name }}">
-                            <button type="submit">Donate</button>
+                            <button class="btn" type="submit">Donate</button>
                         </form>
                     </td>
                 </tr>
